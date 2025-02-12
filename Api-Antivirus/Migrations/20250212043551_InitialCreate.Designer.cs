@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api_Antivirus.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250212035535_InitialCreate")]
+    [Migration("20250212043551_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

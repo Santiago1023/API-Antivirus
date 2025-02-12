@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Api_Antivirus.Models;
+using System;
+using System.Collections.Generic;
 
 namespace Api_Antivirus.Data
 {

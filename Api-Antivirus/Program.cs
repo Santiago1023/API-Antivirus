@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-using Microsoft.EntityFrameworkCore;
-using Api_Antivirus.Data; // Reemplaza "TuProyecto" con el nombre de tu proyecto
-using DotNetEnv;
-
-Env.Load();
-
-var builder = WebApplication.CreateBuilder(args);
-=======
 using DotNetEnv;
 using Microsoft.AspNetCore.Hosting.StaticWebAssets;
+using Api_Antivirus.Data;
+using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 Env.Load(); //Carga las variables de .env
 
@@ -30,8 +24,7 @@ if (environment == "Development")
         $"Port={Environment.GetEnvironmentVariable("PORT")};" +
         $"Database={Environment.GetEnvironmentVariable("DATABASE")};" +
         $"Username={Environment.GetEnvironmentVariable("USERNAME")};" +
-        $"Password={Environment.GetEnvironmentVariable("PASSWORD")};" +
-        $"SslMode={Environment.GetEnvironmentVariable("SSLMODE")};";
+        $"Password={Environment.GetEnvironmentVariable("PASSWORD")};";
 
     //sobreescribir valores de appsettings.json con variables de entorno
     builder.Configuration["ConnectionStrings:DefaultConnection"] = conectionString;
@@ -41,7 +34,6 @@ else
 {
     Console.WriteLine("Entorno Local");
 }
->>>>>>> 54d6b348a6caa71923a73aa5ce30395163b7044c
 
 // Agregar conexión a PostgreSQL
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
