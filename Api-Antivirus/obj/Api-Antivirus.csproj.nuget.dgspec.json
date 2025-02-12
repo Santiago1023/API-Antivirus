@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\migue\\OneDrive\\Escritorio\\Api Antivirus\\Api-Antivirus\\Api-Antivirus.csproj": {}
+    "C:\\Users\\juand\\OneDrive\\Documentos\\Naty\\API-Antivirus\\Api-Antivirus\\Api-Antivirus.csproj": {}
   },
   "projects": {
-    "C:\\Users\\migue\\OneDrive\\Escritorio\\Api Antivirus\\Api-Antivirus\\Api-Antivirus.csproj": {
+    "C:\\Users\\juand\\OneDrive\\Documentos\\Naty\\API-Antivirus\\Api-Antivirus\\Api-Antivirus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\migue\\OneDrive\\Escritorio\\Api Antivirus\\Api-Antivirus\\Api-Antivirus.csproj",
+        "projectUniqueName": "C:\\Users\\juand\\OneDrive\\Documentos\\Naty\\API-Antivirus\\Api-Antivirus\\Api-Antivirus.csproj",
         "projectName": "Api-Antivirus",
-        "projectPath": "C:\\Users\\migue\\OneDrive\\Escritorio\\Api Antivirus\\Api-Antivirus\\Api-Antivirus.csproj",
-        "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\migue\\OneDrive\\Escritorio\\Api Antivirus\\Api-Antivirus\\obj\\",
+        "projectPath": "C:\\Users\\juand\\OneDrive\\Documentos\\Naty\\API-Antivirus\\Api-Antivirus\\Api-Antivirus.csproj",
+        "packagesPath": "C:\\Users\\juand\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\juand\\OneDrive\\Documentos\\Naty\\API-Antivirus\\Api-Antivirus\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\juand\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,11 +38,37 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -62,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
