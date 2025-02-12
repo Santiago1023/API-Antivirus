@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using Microsoft.EntityFrameworkCore;
 using Api_Antivirus.Data; // Reemplaza "TuProyecto" con el nombre de tu proyecto
 using DotNetEnv;
@@ -5,6 +6,42 @@ using DotNetEnv;
 Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
+=======
+using DotNetEnv;
+using Microsoft.AspNetCore.Hosting.StaticWebAssets;
+
+Env.Load(); //Carga las variables de .env
+
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
+
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    EnvironmentName = environment
+    
+});
+
+// Habilitar los Static Web Assets en todos los entornos, incluyendo "Local"
+StaticWebAssetsLoader.UseStaticWebAssets(builder.Environment, builder.Configuration);
+
+if (environment == "Development")
+{
+    String conectionString = $"Host={Environment.GetEnvironmentVariable("HOST")};" +
+        $"Port={Environment.GetEnvironmentVariable("PORT")};" +
+        $"Database={Environment.GetEnvironmentVariable("DATABASE")};" +
+        $"Username={Environment.GetEnvironmentVariable("USERNAME")};" +
+        $"Password={Environment.GetEnvironmentVariable("PASSWORD")};" +
+        $"SslMode={Environment.GetEnvironmentVariable("SSLMODE")};";
+
+    //sobreescribir valores de appsettings.json con variables de entorno
+    builder.Configuration["ConnectionStrings:DefaultConnection"] = conectionString;
+
+}
+else
+{
+    Console.WriteLine("Entorno Local");
+}
+>>>>>>> 54d6b348a6caa71923a73aa5ce30395163b7044c
 
 // Agregar conexión a PostgreSQL
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -17,10 +54,16 @@ builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsProduction())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
+}
+else
+{
+    //app.UseSwagger();
+    //app.UseSwaggerUI();
+    Console.WriteLine("Swagger");
 }
 
 app.UseHttpsRedirection();

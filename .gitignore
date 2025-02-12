@@ -1,7 +1,11 @@
 # Archivos de compilación
 bin/
 obj/
+<<<<<<< HEAD
 .env
+=======
+
+>>>>>>> 54d6b348a6caa71923a73aa5ce30395163b7044c
 
 # Archivos de usuario y configuración de Visual Studio Code
 .vscode/
@@ -26,4 +30,12 @@ wwwroot/
 
 # Archivos de logs
 logs/
+<<<<<<< HEAD
 *.log
+=======
+*.log
+
+
+#archivos de configuracion sencible
+.env
+>>>>>>> 54d6b348a6caa71923a73aa5ce30395163b7044c
