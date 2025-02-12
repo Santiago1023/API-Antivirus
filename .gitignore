@@ -27,3 +27,7 @@ wwwroot/
 # Archivos de logs
 logs/
 *.log
+
+
+#archivos de configuracion sencible
+.env
