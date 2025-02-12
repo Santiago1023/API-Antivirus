@@ -2,13 +2,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Usuario
+public class user
 {
     [Key]
-    public int Id { get; set; }
+    public int id { get; set; }
     [Required]
-    public required string Nombre { get; set; }
-    public required string Correo { get; set; }
-    public required string Contrasena { get; set; }
-    public required string Rol { get; set; }
+    public required string name { get; set; }
+    public required string email { get; set; }
+    public required string password { get; set; }
+    public required string role { get; set; }
 }

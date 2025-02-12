@@ -10,33 +10,33 @@ namespace Api_Antivirus.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         // Agrega DbSet para cada modelo
-        public DbSet<Categoria> Categorias { get; set; }
-        public DbSet<Institucion> Instituciones { get; set; }
-        public DbSet<Tematica> Tematicas { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Oportunidad> Oportunidades { get; set; }
-        public DbSet<OportunidadInstitucion> OportunidadInstitucion { get; set; }
-        public DbSet<UsuarioOportunidad> UsuarioOportunidades { get; set; }
-        public DbSet<Bootcamp> Bootcamps { get; set; }
-        public DbSet<BootcampTematica> BootcampTematicas { get; set; }
-        public DbSet<InstitucionBootcamp> InstitucionBootcamps { get; set; }
+        public DbSet<category> categories { get; set; }
+        public DbSet<institution> institutions { get; set; }
+        public DbSet<topic> topics { get; set; }
+        public DbSet<user> users { get; set; }
+        public DbSet<opportunity> opportunities { get; set; }
+        public DbSet<opportunity_institution> opportunity_institutions { get; set; }
+        public DbSet<user_opportunity> user_opportunities { get; set; }
+        public DbSet<bootcamp> bootcamps { get; set; }
+        public DbSet<bootcamp_topic> bootcamp_topics { get; set; }
+        public DbSet<institution_bootcamp> institution_bootcamps { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             // Configurar claves compuestas
-            modelBuilder.Entity<OportunidadInstitucion>()
-                .HasKey(oi => new { oi.IdOportunidad, oi.IdInstitucion });
+            modelBuilder.Entity<opportunity_institution>()
+                .HasKey(oi => new { oi.opportunity_id, oi.institution_id });
 
-            modelBuilder.Entity<UsuarioOportunidad>()
-                .HasKey(uo => new { uo.IdUsuario, uo.IdOportunidad });
+            modelBuilder.Entity<user_opportunity>()
+                .HasKey(uo => new { uo.user_id, uo.opportunity_id });
 
-            modelBuilder.Entity<BootcampTematica>()
-                .HasKey(bt => new { bt.IdBootcamp, bt.IdTematica });
+            modelBuilder.Entity<bootcamp_topic>()
+                .HasKey(bt => new { bt.bootcamp_id, bt.topic_id });
 
-            modelBuilder.Entity<InstitucionBootcamp>()
-                .HasKey(ib => new { ib.IdInstitucion, ib.IdBootcamp });
+            modelBuilder.Entity<institution_bootcamp>()
+                .HasKey(ib => new { ib.institution_id, ib.bootcamp_id });
         }
     }
 }

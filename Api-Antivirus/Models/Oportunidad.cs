@@ -2,43 +2,43 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Oportunidad
+public class opportunity
 {
     [Key]
-    public int Id { get; set; }
+    public int id { get; set; }
     [Required]
-    public required string Nombre { get; set; }
-    public required string Observaciones { get; set; }
-    public required string Tipo { get; set; }
-    public required string Descripcion { get; set; }
-    public required string Requisitos { get; set; }
-    public required string Guia { get; set; }
-    public required string DatosAdicionales { get; set; }
-    public required string CanalesAtencion { get; set; }
-    public required string Encargado { get; set; }
-    public required string Modalidad { get; set; }
+    public required string name { get; set; }
+    public required string observations { get; set; }
+    public required string type { get; set; }
+    public required string description { get; set; }
+    public required string requirements { get; set; }
+    public required string guide { get; set; }
+    public required string additional_data { get; set; }
+    public required string contact_channels { get; set; }
+    public required string manager { get; set; }
+    public required string modality { get; set; }
     
-    public int? CategoriaId { get; set; }
-    public required Categoria Categoria { get; set; }
+    public int? category_id { get; set; }
+    public required category category { get; set; }
     
-    public int? InstitucionId { get; set; }
-    public required Institucion Institucion { get; set; }
+    public int? institution_id { get; set; }
+    public required institution institution { get; set; }
 }
 
-public class OportunidadInstitucion
+public class opportunity_institution
 {
     [Key]
-    public int Id { get; set; }
-    public required int IdOportunidad { get; set; }
-    public required Oportunidad Oportunidad { get; set; }
-    public required int IdInstitucion { get; set; }
-    public required Institucion Institucion { get; set; }
+    public int id { get; set; }
+    public required int opportunity_id { get; set; }
+    public required opportunity opportunity { get; set; }
+    public required int institution_id { get; set; }
+    public required institution institution { get; set; }
 }
 
-public class UsuarioOportunidad
+public class user_opportunity
 {
-    public required int IdUsuario { get; set; }
-    public required Usuario Usuario { get; set; }
-    public required int IdOportunidad { get; set; }
-    public required Oportunidad Oportunidad { get; set; }
+    public required int user_id { get; set; }
+    public required user user { get; set; }
+    public required int opportunity_id { get; set; }
+    public required opportunity opportunity { get; set; }
 }

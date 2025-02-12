@@ -2,32 +2,32 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Bootcamp
+public class bootcamp
 {
     [Key]
-    public int Id { get; set; }
+    public int id { get; set; }
     [Required]
-    public required string Nombre { get; set; }
-    public required string Descripcion { get; set; }
-    public required string Informacion { get; set; }
-    public required string Costos { get; set; }
+    public required string name { get; set; }
+    public required string description { get; set; }
+    public required string information { get; set; }
+    public required string costs { get; set; }
     
-    public int? InstitucionId { get; set; }
-    public required Institucion Institucion { get; set; }
+    public int? institution_id { get; set; }
+    public required institution institution { get; set; }
 }
 
-public class BootcampTematica
+public class bootcamp_topic
 {
-    public int IdBootcamp { get; set; }
-    public required Bootcamp Bootcamp { get; set; }
-    public int IdTematica { get; set; }
-    public required Tematica Tematica { get; set; }
+    public int bootcamp_id { get; set; }
+    public required bootcamp bootcamp { get; set; }
+    public int topic_id { get; set; }
+    public required topic topic { get; set; }
 }
 
-public class InstitucionBootcamp
+public class institution_bootcamp
 {
-    public int IdInstitucion { get; set; }
-    public required Institucion Institucion { get; set; }
-    public int IdBootcamp { get; set; }
-    public required Bootcamp Bootcamp { get; set; }
+    public int institution_id { get; set; }
+    public required institution institution { get; set; }
+    public int bootcamp_id { get; set; }
+    public required bootcamp bootcamp { get; set; }
 }

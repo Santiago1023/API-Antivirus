@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Tematica
+public class topic
 {
     [Key]
-    public int Id { get; set; }
+    public int id { get; set; }
     [Required]
-    public required string Nombre { get; set; }
+    public required string name { get; set; }
 }
