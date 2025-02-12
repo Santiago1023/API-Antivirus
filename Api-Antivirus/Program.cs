@@ -42,6 +42,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -53,9 +55,8 @@ if (app.Environment.IsProduction())
 }
 else
 {
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
-    Console.WriteLine("Swagger");
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
