@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Api_Antivirus.Models;
 using System;
 using System.Collections.Generic;
+using OpportunitiesInstitutionAPI.Models;
+using UserOpportunitiesAPI.Models;
+using OpportunitiesAPI.Models;
 
 namespace Api_Antivirus.Data
 {
