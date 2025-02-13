@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Api_Antivirus.Data;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
+using Api_Antivirus.Services;
 
 Env.Load(); //Carga las variables de .env
 
@@ -24,7 +25,8 @@ if (environment == "Development")
         $"Port={Environment.GetEnvironmentVariable("PORT")};" +
         $"Database={Environment.GetEnvironmentVariable("DATABASE")};" +
         $"Username={Environment.GetEnvironmentVariable("USERNAME")};" +
-        $"Password={Environment.GetEnvironmentVariable("PASSWORD")};";
+        $"Password={Environment.GetEnvironmentVariable("PASSWORD")};" +
+        $"SSL Mode={Environment.GetEnvironmentVariable("SSL_MODE")};";
 
     //sobreescribir valores de appsettings.json con variables de entorno
     builder.Configuration["ConnectionStrings:DefaultConnection"] = conectionString;
@@ -44,6 +46,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<InstitutionService>();
 
 var app = builder.Build();
 

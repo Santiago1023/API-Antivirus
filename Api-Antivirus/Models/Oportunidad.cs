@@ -2,43 +2,52 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class opportunity
+/// <summary>
+/// Representa una oportunidad en el sistema.
+/// </summary>
+public class Opportunity
 {
     [Key]
-    public int id { get; set; }
+    public int Id { get; set; }
     [Required]
-    public required string name { get; set; }
-    public required string observations { get; set; }
-    public required string type { get; set; }
-    public required string description { get; set; }
-    public required string requirements { get; set; }
-    public required string guide { get; set; }
-    public required string additional_data { get; set; }
-    public required string contact_channels { get; set; }
-    public required string manager { get; set; }
-    public required string modality { get; set; }
+    public required string Name { get; set; }
+    public required string Observations { get; set; }
+    public required string Type { get; set; }
+    public required string Description { get; set; }
+    public required string Requirements { get; set; }
+    public required string Guide { get; set; }
+    public required string AdditionalData { get; set; }
+    public required string ContactChannels { get; set; }
+    public required string Manager { get; set; }
+    public required string Modality { get; set; }
     
-    public int? category_id { get; set; }
-    public required category category { get; set; }
+    public int? CategoryId { get; set; }
+    public required Category Category { get; set; }
     
-    public int? institution_id { get; set; }
-    public required institution institution { get; set; }
+    public int? InstitutionId { get; set; }
+    public required Institution Institution { get; set; }
 }
 
-public class opportunity_institution
+/// <summary>
+/// Representa la relación entre una oportunidad y una institución.
+/// </summary>
+public class OpportunityInstitution
 {
     [Key]
-    public int id { get; set; }
-    public required int opportunity_id { get; set; }
-    public required opportunity opportunity { get; set; }
-    public required int institution_id { get; set; }
-    public required institution institution { get; set; }
+    public int Id { get; set; }
+    public required int OpportunityId { get; set; }
+    public required Opportunity Opportunity { get; set; }
+    public required int InstitutionId { get; set; }
+    public required Institution Institution { get; set; }
 }
 
-public class user_opportunity
+/// <summary>
+/// Representa la relación entre un usuario y una oportunidad.
+/// </summary>
+public class UserOpportunity
 {
-    public required int user_id { get; set; }
-    public required user user { get; set; }
-    public required int opportunity_id { get; set; }
-    public required opportunity opportunity { get; set; }
+    public required int UserId { get; set; }
+    public required User User { get; set; }
+    public required int OpportunityId { get; set; }
+    public required Opportunity Opportunity { get; set; }
 }

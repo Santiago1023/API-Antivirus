@@ -2,11 +2,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class category
+/// <summary>
+/// Representa una categoria en el sistema.
+/// </summary>
+public class Category
 {
     [Key]
-    public int id { get; set; }
+    public int Id { get; set; }
     [Required]
-    public required string name { get; set; }
-    public required string description { get; set; }
+    public required string Name { get; set; }
+    public required string Description { get; set; }
 }

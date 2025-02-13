@@ -2,32 +2,41 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class bootcamp
+/// <summary>
+/// Representa un bootcamp en el sistema.
+/// </summary>
+public class Bootcamp
 {
     [Key]
-    public int id { get; set; }
+    public int Id { get; set; }
     [Required]
-    public required string name { get; set; }
-    public required string description { get; set; }
-    public required string information { get; set; }
-    public required string costs { get; set; }
+    public required string Name { get; set; }
+    public required string Description { get; set; }
+    public required string Information { get; set; }
+    public required string Costs { get; set; }
     
-    public int? institution_id { get; set; }
-    public required institution institution { get; set; }
+    public int? InstitutionId { get; set; }
+    public required Institution Institution { get; set; }
 }
 
-public class bootcamp_topic
+/// <summary>
+/// Representa una relacion en bootcamp con tematica en el sistema.
+/// </summary>
+public class BootcampTopic
 {
-    public int bootcamp_id { get; set; }
-    public required bootcamp bootcamp { get; set; }
-    public int topic_id { get; set; }
-    public required topic topic { get; set; }
+    public int BootcampId { get; set; }
+    public required Bootcamp Bootcamp { get; set; }
+    public int TopicId { get; set; }
+    public required Topic Topic { get; set; }
 }
 
-public class institution_bootcamp
+/// <summary>
+/// Representa una relacion en bootcamp con institucion en el sistema.
+/// </summary>
+public class InstitutionBootcamp
 {
-    public int institution_id { get; set; }
-    public required institution institution { get; set; }
-    public int bootcamp_id { get; set; }
-    public required bootcamp bootcamp { get; set; }
+    public int InstitutionId { get; set; }
+    public required Institution Institution { get; set; }
+    public int BootcampId { get; set; }
+    public required Bootcamp Bootcamp { get; set; }
 }

@@ -2,10 +2,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class topic
+/// <summary>
+/// Representa un tema en el sistema.
+/// </summary>
+public class Topic
 {
     [Key]
-    public int id { get; set; }
+    public int Id { get; set; }
     [Required]
-    public required string name { get; set; }
+    public required string Name { get; set; }
 }

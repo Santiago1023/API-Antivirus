@@ -2,15 +2,18 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class institution
+/// <summary>
+/// Representa una institución en el sistema.
+/// </summary>
+public class Institution
 {
     [Key]
-    public int id { get; set; }
+    public int Id { get; set; }
     [Required]
-    public required string name { get; set; }
-    public required string location { get; set; }
-    public required string url_general { get; set; }
-    public required string url_academic_offers { get; set; }
-    public required string url_wellbeing { get; set; }
-    public required string url_admission { get; set; }
+    public required string Name { get; set; }
+    public required string Location { get; set; }
+    public required string UrlGeneral { get; set; }
+    public required string UrlAcademicOffers { get; set; }
+    public required string UrlWellbeing { get; set; }
+    public required string UrlAdmission { get; set; }
 }

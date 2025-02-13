@@ -2,13 +2,16 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class user
+/// <summary>
+/// Representa un usuario en el sistema.
+/// </summary>
+public class User
 {
     [Key]
-    public int id { get; set; }
+    public int Id { get; set; }
     [Required]
-    public required string name { get; set; }
-    public required string email { get; set; }
-    public required string password { get; set; }
-    public required string role { get; set; }
+    public required string Name { get; set; }
+    public required string Email { get; set; }
+    public required string Password { get; set; }
+    public required string Role { get; set; }
 }
