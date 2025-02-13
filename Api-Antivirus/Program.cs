@@ -1,5 +1,9 @@
 using DotNetEnv;
 using Microsoft.AspNetCore.Hosting.StaticWebAssets;
+using Api_Antivirus.Data;
+using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+using Api_Antivirus.Services;
 
 Env.Load(); //Carga las variables de .env
 
@@ -22,7 +26,7 @@ if (environment == "Development")
         $"Database={Environment.GetEnvironmentVariable("DATABASE")};" +
         $"Username={Environment.GetEnvironmentVariable("USERNAME")};" +
         $"Password={Environment.GetEnvironmentVariable("PASSWORD")};" +
-        $"SslMode={Environment.GetEnvironmentVariable("SSLMODE")};";
+        $"SSL Mode={Environment.GetEnvironmentVariable("SSL_MODE")};";
 
     //sobreescribir valores de appsettings.json con variables de entorno
     builder.Configuration["ConnectionStrings:DefaultConnection"] = conectionString;
@@ -33,10 +37,17 @@ else
     Console.WriteLine("Entorno Local");
 }
 
+// Agregar conexión a PostgreSQL
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(connectionString));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<InstitutionService>();
+
 
 var app = builder.Build();
 
@@ -44,7 +55,6 @@ var app = builder.Build();
 if (app.Environment.IsProduction())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 else
@@ -64,6 +74,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();
