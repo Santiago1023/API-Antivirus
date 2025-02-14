@@ -4,7 +4,6 @@ using Api_Antivirus.Data;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Api_Antivirus.Services;
-using OpportunitiesAPI.Services;
 
 Env.Load(); //Carga las variables de .env
 
@@ -51,6 +50,7 @@ builder.Services.AddScoped<InstitutionService>();
 builder.Services.AddScoped<IOpportunityService, OpportunityService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IUser_OpportunityService, User_OpportunityService>();
 
 
 var app = builder.Build();

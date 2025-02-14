@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OpportunitiesAPI.Services;
-using OpportunitiesAPI.Models;
+using Api_Antivirus.Controllers;
+using Api_Antivirus.Services;
+using Api_Antivirus.Models;
 
-namespace OpportunitiesAPI.Controllers
+
+
+namespace Api_Antivirus.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

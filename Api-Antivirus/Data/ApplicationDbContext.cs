@@ -2,9 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Api_Antivirus.Models;
 using System;
 using System.Collections.Generic;
-using OpportunitiesInstitutionAPI.Models;
-using UserOpportunitiesAPI.Models;
-using OpportunitiesAPI.Models;
 
 namespace Api_Antivirus.Data
 {
@@ -47,12 +44,11 @@ namespace Api_Antivirus.Data
                 .HasOne<User> (uo => uo.User)
                 .WithMany (u => u.User_Opportunity)
                 .HasForeignKey (uo => uo.UserId);
-            /*//Opportunity
+            //Opportunity
             modelBuilder.Entity<User_Opportunity>()
                 .HasOne<Opportunity> (ou => ou.Opportunity)
-                .WithMany (o => o.UserOpportunities)
-                .HasForeignKey (ou => ou.OpportunityIdId);
-            */
+                .WithMany (o => o.User_Opportunity)
+                .HasForeignKey (ou => ou.OpportunityId);
         }
     }
 }
