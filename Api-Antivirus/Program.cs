@@ -50,6 +50,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<InstitutionService>();
 builder.Services.AddScoped<IOpportunityService, OpportunityService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
 var app = builder.Build();
