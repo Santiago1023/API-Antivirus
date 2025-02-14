@@ -1,0 +1,304 @@
+{
+  "Version": 1,
+  "ManifestType": "Build",
+  "Endpoints": [
+    {
+      "Route": "Api-Antivirus.kn9t7c4xkw.styles.css",
+      "AssetFile": "Api-Antivirus.styles.css.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001838235294"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "543"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ulBFoYyPGxkn1DeHFjNNRn8davxPJ2K/4enTPAsHsYE=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"IG3eJ0BjW/4KKMeBPZ8gBPY0bEjvd7NF9ohoqTscD88=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Feb 2025 01:24:37 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kn9t7c4xkw"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IG3eJ0BjW/4KKMeBPZ8gBPY0bEjvd7NF9ohoqTscD88="
+        },
+        {
+          "Name": "label",
+          "Value": "Api-Antivirus.styles.css"
+        }
+      ]
+    },
+    {
+      "Route": "Api-Antivirus.kn9t7c4xkw.styles.css",
+      "AssetFile": "Api-Antivirus.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1131"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IG3eJ0BjW/4KKMeBPZ8gBPY0bEjvd7NF9ohoqTscD88=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Feb 2025 01:24:37 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kn9t7c4xkw"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IG3eJ0BjW/4KKMeBPZ8gBPY0bEjvd7NF9ohoqTscD88="
+        },
+        {
+          "Name": "label",
+          "Value": "Api-Antivirus.styles.css"
+        }
+      ]
+    },
+    {
+      "Route": "Api-Antivirus.kn9t7c4xkw.styles.css.gz",
+      "AssetFile": "Api-Antivirus.styles.css.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "543"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ulBFoYyPGxkn1DeHFjNNRn8davxPJ2K/4enTPAsHsYE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Feb 2025 01:24:37 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kn9t7c4xkw"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ulBFoYyPGxkn1DeHFjNNRn8davxPJ2K/4enTPAsHsYE="
+        },
+        {
+          "Name": "label",
+          "Value": "Api-Antivirus.styles.css.gz"
+        }
+      ]
+    },
+    {
+      "Route": "Api-Antivirus.styles.css",
+      "AssetFile": "Api-Antivirus.styles.css.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001838235294"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "543"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ulBFoYyPGxkn1DeHFjNNRn8davxPJ2K/4enTPAsHsYE=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"IG3eJ0BjW/4KKMeBPZ8gBPY0bEjvd7NF9ohoqTscD88=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Feb 2025 01:24:37 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IG3eJ0BjW/4KKMeBPZ8gBPY0bEjvd7NF9ohoqTscD88="
+        }
+      ]
+    },
+    {
+      "Route": "Api-Antivirus.styles.css",
+      "AssetFile": "Api-Antivirus.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1131"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IG3eJ0BjW/4KKMeBPZ8gBPY0bEjvd7NF9ohoqTscD88=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Feb 2025 01:24:37 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IG3eJ0BjW/4KKMeBPZ8gBPY0bEjvd7NF9ohoqTscD88="
+        }
+      ]
+    },
+    {
+      "Route": "Api-Antivirus.styles.css.gz",
+      "AssetFile": "Api-Antivirus.styles.css.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "543"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ulBFoYyPGxkn1DeHFjNNRn8davxPJ2K/4enTPAsHsYE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Feb 2025 01:24:37 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ulBFoYyPGxkn1DeHFjNNRn8davxPJ2K/4enTPAsHsYE="
+        }
+      ]
+    }
+  ]
+}

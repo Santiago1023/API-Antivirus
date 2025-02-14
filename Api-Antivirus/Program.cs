@@ -47,6 +47,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<InstitutionService>();
+builder.Services.AddScoped<BootcampService>();
 
 var app = builder.Build();
 
