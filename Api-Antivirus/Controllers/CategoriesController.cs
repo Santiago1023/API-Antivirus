@@ -25,10 +25,10 @@ namespace Api_Antivirus.Controllers
         [HttpGet("{id}")]
         public async Task <ActionResult<Category>> GetId (int Id)
         {
-            var serviceAntivirus = await _categorySercice.GetByIdAsync(Id);
-            if (serviceAntivirus != null)
+            var category = await _categorySercice.GetByIdAsync(Id);
+            if (category != null)
             {
-                return Ok(serviceAntivirus);
+                return Ok(category);
             }
             return NotFound();
         }
@@ -54,8 +54,8 @@ namespace Api_Antivirus.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, Category category)
         {
-            var existingService = await _categorySercice.GetByIdAsync(id);
-            if (existingService != null)
+            var existingCategory = await _categorySercice.GetByIdAsync(id);
+            if (existingCategory != null)
             {
                 category.Id = id;
                 await _categorySercice.UpdateAsync(category);
@@ -67,8 +67,8 @@ namespace Api_Antivirus.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete (int id)
         {
-            var existingService = await _categorySercice.GetByIdAsync(id);
-            if (existingService != null)
+            var existingCategory = await _categorySercice.GetByIdAsync(id);
+            if (existingCategory != null)
             {
                 await _categorySercice.DeleteAsync(id);
                 return NoContent();

@@ -18,12 +18,12 @@ namespace Api_Antivirus.Services
         }
         public async Task <Category?> GetByIdAsync(int id)
         {
-            var servIndividual= await _context.Categories.FindAsync(id);
-            if (servIndividual != null)
+            var category= await _context.Categories.FindAsync(id);
+            if (category != null)
             {
-                return servIndividual;
+                return category;
             }
-            Console.WriteLine("Servicio No encontrado");
+            Console.WriteLine("Categoria No encontrada");
             return null;
         }
         public async Task CreateAsync (Category category)
@@ -39,10 +39,10 @@ namespace Api_Antivirus.Services
         }
         public async Task DeleteAsync  (int id)
         {
-            var service =await _context.Categories.FindAsync(id);
-            if (service != null)
+            var category =await _context.Categories.FindAsync(id);
+            if (category != null)
             {
-                _context.Categories.Remove(service);
+                _context.Categories.Remove(category);
                 await _context.SaveChangesAsync();
             }
         }
