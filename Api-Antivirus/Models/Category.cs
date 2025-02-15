@@ -1,8 +1,5 @@
 
-
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations;
-using Api_Antivirus.Models;
 
 namespace Api_Antivirus.Models
 {
