@@ -10,7 +10,7 @@ namespace Api_Antivirus.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] 
+    //[Authorize] 
     public class OpportunitiesController : ControllerBase
     {
         private readonly IOpportunityService _opportunityService;
