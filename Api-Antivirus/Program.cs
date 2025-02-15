@@ -4,6 +4,7 @@ using Api_Antivirus.Data;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Api_Antivirus.Services;
+using OpportunitiesAPI.Services;
 
 Env.Load(); //Carga las variables de .env
 
@@ -52,7 +53,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IUser_OpportunityService, User_OpportunityService>();
 builder.Services.AddScoped<IBootcampTopicsService, BootcampTopicsService>();
-
+builder.Services.AddScoped<ITopicService, TopicService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -16,7 +16,8 @@ public class Bootcamp
     public required string Costs { get; set; }
     
     public int? InstitutionId { get; set; }
-    public required Institution Institution { get; set; }
+    public Institution? Institution { get; set; }
+
 }
 
 /// <summary>
