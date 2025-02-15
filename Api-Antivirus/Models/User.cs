@@ -16,8 +16,7 @@ namespace Api_Antivirus.Models
         public required string Email { get; set; }
         public required string Password { get; set; }
         public required string Password_Confirmation { get; set; }
-
         public required IEnumerable<User_Opportunity> User_Opportunity { get; set; }
-        
-    }
+ 
+   }
 }

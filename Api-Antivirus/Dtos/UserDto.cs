@@ -1,5 +1,7 @@
 
-namespace Api_Antivirus.Dtos
+using Api_Antivirus.Models;
+
+namespace Api_Antivirus.Dto
 {
     public class UserDto
     {
@@ -9,5 +11,6 @@ namespace Api_Antivirus.Dtos
         public required string Email { get; set; }
         public required string Password { get; set; }
         public required string Password_Confirmation { get; set; }
+        public IEnumerable<User_Opportunity> User_Opportunity { get; internal set; }
     }
 }
