@@ -15,7 +15,8 @@ namespace Api_Antivirus.Mappers
                 Email = userDto.Email,
                 Password = userDto.Password,
                 Password_Confirmation = userDto.Password_Confirmation,
-                User_Opportunity = userDto.User_Opportunity         
+                User_Opportunity = userDto.User_Opportunity
+
             };
         }
 
