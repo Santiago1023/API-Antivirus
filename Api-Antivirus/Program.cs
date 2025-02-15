@@ -4,6 +4,7 @@ using Api_Antivirus.Data;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Api_Antivirus.Services;
+using OpportunitiesAPI.Services;
 
 Env.Load(); //Carga las variables de .env
 

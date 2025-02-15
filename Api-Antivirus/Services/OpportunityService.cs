@@ -1,9 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Api_Antivirus.Data;
+using OpportunitiesAPI.Models;
+
+
+namespace OpportunitiesAPI.Services
 using Api_Antivirus.Models;
 
 
-namespace  Api_Antivirus.Services
+//namespace  Api_Antivirus.Services
 {
     public class OpportunityService : IOpportunityService
     {
