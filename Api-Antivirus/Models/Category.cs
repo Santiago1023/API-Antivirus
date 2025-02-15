@@ -1,11 +1,7 @@
 
-
 using System.ComponentModel.DataAnnotations;
-//using OpportunitiesAPI.Models;
-using System.ComponentModel.DataAnnotations;
-using Api_Antivirus.Models;
 
-namespace OpportunitiesAPI.Models
+namespace Api_Antivirus.Models
 {
     public class Category
     {

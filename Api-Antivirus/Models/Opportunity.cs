@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OpportunitiesAPI.Models
+namespace Api_Antivirus.Models
 {
     /// <summary>
     /// Representa una oportunidad en el sistema.
