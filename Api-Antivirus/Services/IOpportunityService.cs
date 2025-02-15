@@ -1,6 +1,9 @@
 using OpportunitiesAPI.Models;
 
 namespace OpportunitiesAPI.Services
+//using Api_Antivirus.Models;
+
+namespace  Api_Antivirus.Services
 {
     public interface IOpportunityService
     {

@@ -22,6 +22,7 @@ namespace Api_Antivirus.Data
         public DbSet<User_Opportunity> UserOpportunities { get; set; }
         public DbSet<Bootcamp> Bootcamps { get; set; }
         public DbSet<BootcampTopic> BootcampTopics { get; set; }
+        //public DbSet<BootcampTopics> BootcampTopics { get; set; }
             public DbSet<InstitutionBootcamp> InstitutionBootcamps { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,7 +36,7 @@ namespace Api_Antivirus.Data
             modelBuilder.Entity<User_Opportunity>()
                 .HasKey(uo => new { uo.UserId, uo.OpportunityId });
 
-            modelBuilder.Entity<BootcampTopic>()
+            modelBuilder.Entity<BootcampTopics>()
                 .HasKey(bt => new { bt.BootcampId, bt.TopicId });
 
             modelBuilder.Entity<InstitutionBootcamp>()
@@ -53,6 +54,11 @@ namespace Api_Antivirus.Data
                 .WithMany (o => o.UserOpportunities)
                 .HasForeignKey (ou => ou.OpportunityIdId);
             */
+            //Opportunity
+            modelBuilder.Entity<User_Opportunity>()
+                .HasOne<Opportunity> (ou => ou.Opportunity)
+                .WithMany (o => o.User_Opportunity)
+                .HasForeignKey (ou => ou.OpportunityId);
         }
     }
 }

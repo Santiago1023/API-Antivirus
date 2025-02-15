@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using OpportunitiesAPI.Models;
+//using OpportunitiesAPI.Models;
+using Api_Antivirus.Models;
 
 namespace Api_Antivirus.Models
 {

@@ -51,7 +51,8 @@ builder.Services.AddScoped<InstitutionService>();
 builder.Services.AddScoped<IOpportunityService, OpportunityService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-
+builder.Services.AddScoped<IUser_OpportunityService, User_OpportunityService>();
+builder.Services.AddScoped<IBootcampTopicsService, BootcampTopicsService>();
 
 var app = builder.Build();
 
