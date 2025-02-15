@@ -10,6 +10,7 @@ namespace Api_Antivirus.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         // Agrega DbSet para cada modelo
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Institution> Institutions { get; set; }
         public DbSet<Topic> Topics { get; set; }
@@ -52,3 +53,4 @@ namespace Api_Antivirus.Data
         }
     }
 }
+

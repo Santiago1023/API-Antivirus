@@ -1,5 +1,4 @@
 using Api_Antivirus.Dto;
-using Api_Antivirus.Dtos;
 using Api_Antivirus.Models;
 
 namespace Api_Antivirus.Mappers
@@ -16,7 +15,7 @@ namespace Api_Antivirus.Mappers
                 Email = userDto.Email,
                 Password = userDto.Password,
                 Password_Confirmation = userDto.Password_Confirmation,
-                //User_Opportunity = userDto.User_Opportunity
+                User_Opportunity = userDto.User_Opportunity
 
             };
         }

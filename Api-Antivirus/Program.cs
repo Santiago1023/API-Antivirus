@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Api_Antivirus.Services;
 
+
 Env.Load(); //Carga las variables de .env
 
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
@@ -52,7 +53,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IUser_OpportunityService, User_OpportunityService>();
 builder.Services.AddScoped<IBootcampTopicsService, BootcampTopicsService>();
-builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<IInstitutionBootcampService,InstitutionBootcampService>();
 
 var app = builder.Build();
 
