@@ -18,6 +18,7 @@ namespace Api_Antivirus.Config
             services.AddScoped<ITopic, TopicService>();
             services.AddScoped<IUserOpportunities, UserOpportunitiesService>();
             services.AddScoped<IUsers, UsersService>();
+            services.AddScoped<AuthService>();
 
             
             // Configuración de la base de datos

@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.ConfigureServices(builder.Configuration);
 builder.Services.ConfigureSwagger();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.ConfigureJwtAuthentication(builder.Configuration);
 
 
 
@@ -29,6 +30,7 @@ app.UseSwaggerUI(c =>
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapStaticAssets();
 

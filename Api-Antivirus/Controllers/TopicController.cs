@@ -1,11 +1,13 @@
 using Api_Antivirus.DTO;
 using Api_Antivirus.Interface;
 using Api_Antivirus.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api_Antivirus.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class TopicController : ControllerBase
     {
