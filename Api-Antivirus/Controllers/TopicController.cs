@@ -3,6 +3,7 @@ using Api_Antivirus.Interface;
 using Api_Antivirus.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Api_Antivirus.Controllers
 {
@@ -38,7 +39,9 @@ namespace Api_Antivirus.Controllers
 
         [HttpPost]
         public async Task<ActionResult<TopicResponseDto>> Create([FromBody] TopicRequestDto dto)
-        {
+        {   
+            if (!IsAdmin()) return Forbid();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -49,7 +52,9 @@ namespace Api_Antivirus.Controllers
 
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, [FromBody] TopicRequestDto dto)
-        {
+        {   
+            if (!IsAdmin()) return Forbid();
+
             var entity = await _service.GetByIdAsync(id);
             if (entity == null)
             {
@@ -60,7 +65,9 @@ namespace Api_Antivirus.Controllers
 
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
-        {
+        {   
+            if (!IsAdmin()) return Forbid();
+
             var result = await _service.GetByIdAsync(id);
             if (result == null)
             {
@@ -68,6 +75,12 @@ namespace Api_Antivirus.Controllers
             }
             await _service.DeleteAsync(id);
             return NoContent();
+        }
+
+        private bool IsAdmin()
+        {
+            var role = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            return role == "admin";
         }
     }
 }
