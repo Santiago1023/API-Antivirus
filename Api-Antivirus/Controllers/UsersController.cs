@@ -2,11 +2,14 @@ using Api_Antivirus.DTO;
 using Api_Antivirus.Interface;
 using Api_Antivirus.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Api_Antivirus.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsersController : ControllerBase
     {
         private readonly IUsers _service;
@@ -36,7 +39,9 @@ namespace Api_Antivirus.Controllers
 
         [HttpPost]
         public async Task<ActionResult<UsersResponseDto>> Create([FromBody] UsersRequestDto dto)
-        {
+        {   
+            if (!IsAdmin()) return Forbid();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -47,7 +52,9 @@ namespace Api_Antivirus.Controllers
 
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, [FromBody] UsersRequestDto dto)
-        {
+        {   
+            if (!IsAdmin()) return Forbid();
+
             var entity = await _service.GetByIdAsync(id);
             if (entity == null)
             {
@@ -58,7 +65,9 @@ namespace Api_Antivirus.Controllers
 
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
-        {
+        {   
+            if (!IsAdmin()) return Forbid();
+
             var result = await _service.GetByIdAsync(id);
             if (result == null)
             {
@@ -66,6 +75,12 @@ namespace Api_Antivirus.Controllers
             }
             await _service.DeleteAsync(id);
             return NoContent();
+        }
+
+        private bool IsAdmin()
+        {
+            var role = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            return role == "admin";
         }
     }
 }
