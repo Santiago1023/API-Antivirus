@@ -28,7 +28,7 @@ namespace Api_Antivirus.Services
             _mapper.Map<OpportunitiesRequestDto>(entity);
         }
 
-        public async Task DeleteAsync(long id)
+        public async Task DeleteAsync(int id)
         {
             var entity = await _context.opportunities.FindAsync(id);
             if (entity != null)
@@ -44,13 +44,13 @@ namespace Api_Antivirus.Services
             return _mapper.Map<IEnumerable<OpportunitiesResponseDto>>(entities);
         }
 
-        public async Task<OpportunitiesResponseDto> GetByIdAsync(long id)
+        public async Task<OpportunitiesResponseDto> GetByIdAsync(int id)
         {
             var entity = await _context.opportunities.FindAsync(id);
             return _mapper.Map<OpportunitiesResponseDto>(entity);
         }
 
-        public async Task UpdateAsync(long id, OpportunitiesRequestDto dto)
+        public async Task UpdateAsync(int id, OpportunitiesRequestDto dto)
         {
             var entity = await _context.opportunities.FindAsync(id);
             if (entity != null)

@@ -5,9 +5,9 @@ namespace Api_Antivirus.Interface
     public interface ICategories
     {
         Task<IEnumerable<CategoriesResponseDto>> GetAllAsync();
-        Task<CategoriesResponseDto> GetByIdAsync(long id);
+        Task<CategoriesResponseDto> GetByIdAsync(int  id);
         Task CreateAsync(CategoriesRequestDto dto);
-        Task UpdateAsync(long id, CategoriesRequestDto dto);
-        Task DeleteAsync(long id);
+        Task UpdateAsync(int  id, CategoriesRequestDto dto);
+        Task DeleteAsync(int  id);
     }
 }

@@ -5,9 +5,9 @@ namespace Api_Antivirus.Interface
     public interface ITopic
     {
         Task<IEnumerable<TopicResponseDto>> GetAllAsync();
-        Task<TopicResponseDto> GetByIdAsync(long id);
+        Task<TopicResponseDto> GetByIdAsync(int id);
         Task CreateAsync(TopicRequestDto dto);
-        Task UpdateAsync(long id, TopicRequestDto dto);
-        Task DeleteAsync(long id);
+        Task UpdateAsync(int id, TopicRequestDto dto);
+        Task DeleteAsync(int id);
     }
 }

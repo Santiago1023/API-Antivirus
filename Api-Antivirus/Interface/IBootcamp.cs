@@ -5,9 +5,9 @@ namespace Api_Antivirus.Interface
     public interface IBootcamp
     {
         Task<IEnumerable<BootcampResponseDto>> GetAllAsync();
-        Task<BootcampResponseDto> GetByIdAsync(long id);
+        Task<BootcampResponseDto> GetByIdAsync(int id);
         Task CreateAsync(BootcampRequestDto dto);
-        Task UpdateAsync(long id, BootcampRequestDto dto);
-        Task DeleteAsync(long id);
+        Task UpdateAsync(int id, BootcampRequestDto dto);
+        Task DeleteAsync(int id);
     }
 }

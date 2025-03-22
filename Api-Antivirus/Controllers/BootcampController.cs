@@ -25,7 +25,9 @@ namespace Api_Antivirus.Controllers
         // Solo usuarios autenticados pueden acceder
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BootcampResponseDto>>> GetAll()
-        {
+        {   
+            if (!IsAdmin()) return Forbid();
+            
             var list = await _service.GetAllAsync();
             return Ok(list);
         }
@@ -86,7 +88,7 @@ namespace Api_Antivirus.Controllers
         // Método privado para verificar si el usuario tiene rol "admin"
         private bool IsAdmin()
         {
-            var role = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            var role = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "rol")?.Value;
             return role == "admin";
         }
     }

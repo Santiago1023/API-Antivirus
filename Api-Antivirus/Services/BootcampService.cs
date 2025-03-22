@@ -27,7 +27,7 @@ namespace Api_Antivirus.Services
             _mapper.Map<BootcampRequestDto>(entity);
         }
 
-        public async Task DeleteAsync(long id)
+        public async Task DeleteAsync(int id)
         {
             var entity = await _context.bootcamps.FindAsync(id);
             if (entity != null)
@@ -43,13 +43,13 @@ namespace Api_Antivirus.Services
             return _mapper.Map<IEnumerable<BootcampResponseDto>>(entities);
         }
 
-        public async Task<BootcampResponseDto> GetByIdAsync(long id)
+        public async Task<BootcampResponseDto> GetByIdAsync(int id)
         {
             var entity = await _context.bootcamps.FindAsync(id);
             return _mapper.Map<BootcampResponseDto>(entity);
         }
 
-        public async Task UpdateAsync(long id, BootcampRequestDto dto)
+        public async Task UpdateAsync(int id, BootcampRequestDto dto)
         {
             var entity = await _context.bootcamps.FindAsync(id);
             if (entity != null)
@@ -58,7 +58,7 @@ namespace Api_Antivirus.Services
                 entity.description = dto.Description;
                 entity.information = dto.Information;
                 entity.costs = dto.Costs;
-                entity.institution_id = dto.Institution_id?.id;
+                entity.institution_id = dto.Institution_id;
                 await _context.SaveChangesAsync();
             }
         }
