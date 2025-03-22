@@ -60,6 +60,8 @@ namespace Api_Antivirus.Controllers
             {
                 return NotFound();
             }
+
+            await _service.UpdateAsync(id, dto);
             return NoContent();
         }
 
@@ -79,8 +81,9 @@ namespace Api_Antivirus.Controllers
 
         private bool IsAdmin()
         {
-            var role = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            var role = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "rol")?.Value;
             return role == "admin";
+            
         }
     
     }

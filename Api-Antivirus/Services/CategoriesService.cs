@@ -28,7 +28,7 @@ namespace Api_Antivirus.Services
             _mapper.Map<CategoriesRequestDto>(entity);
         }
 
-        public async Task DeleteAsync(long id)
+        public async Task DeleteAsync(int  id)
         {
             var entity = await _context.categories.FindAsync(id);
             if (entity != null)
@@ -44,21 +44,24 @@ namespace Api_Antivirus.Services
             return _mapper.Map<IEnumerable<CategoriesResponseDto>>(entities);
         }
 
-        public async Task<CategoriesResponseDto> GetByIdAsync(long id)
+        public async Task<CategoriesResponseDto> GetByIdAsync(int  id)
         {
             var entity = await _context.categories.FindAsync(id);
             return _mapper.Map<CategoriesResponseDto>(entity);
         }
 
-        public async Task UpdateAsync(long id, CategoriesRequestDto dto)
+        public async Task UpdateAsync(int id, CategoriesRequestDto dto)
         {
             var entity = await _context.categories.FindAsync(id);
-            if (entity != null)
+            if (entity == null)
             {
-                entity.name = dto.Name;
-                entity.description = dto.Description;
-                await _context.SaveChangesAsync();
+                throw new KeyNotFoundException($"Category with ID {id} not found.");
             }
+
+            entity.name = dto.Name;
+            entity.description = dto.Description;
+            
+            await _context.SaveChangesAsync();
         }
     }
 }

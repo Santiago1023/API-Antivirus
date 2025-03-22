@@ -5,9 +5,9 @@ namespace Api_Antivirus.Interface
     public interface IUsers
     {
         Task<IEnumerable<UsersResponseDto>> GetAllAsync();
-        Task<UsersResponseDto> GetByIdAsync(long id);
+        Task<UsersResponseDto> GetByIdAsync(int id);
         Task CreateAsync(UsersRequestDto dto);
-        Task UpdateAsync(long id, UsersRequestDto dto);
-        Task DeleteAsync(long id);
+        Task UpdateAsync(int id, UsersRequestDto dto);
+        Task DeleteAsync(int id);
     }
 }

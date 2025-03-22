@@ -60,6 +60,7 @@ namespace Api_Antivirus.Controllers
             {
                 return NotFound();
             }
+            await _service.UpdateAsync(id, dto);
             return NoContent();
         }
 

@@ -28,7 +28,7 @@ namespace Api_Antivirus.Services
             _mapper.Map<TopicRequestDto>(entity);
         }
 
-        public async Task DeleteAsync(long id)
+        public async Task DeleteAsync(int id)
         {
             var entity = await _context.topics.FindAsync(id);
             if (entity != null)
@@ -44,13 +44,13 @@ namespace Api_Antivirus.Services
             return _mapper.Map<IEnumerable<TopicResponseDto>>(entities);
         }
 
-        public async Task<TopicResponseDto> GetByIdAsync(long id)
+        public async Task<TopicResponseDto> GetByIdAsync(int id)
         {
             var entity = await _context.topics.FindAsync(id);
             return _mapper.Map<TopicResponseDto>(entity);
         }
 
-        public async Task UpdateAsync(long id, TopicRequestDto dto)
+        public async Task UpdateAsync(int id, TopicRequestDto dto)
         {
             var entity = await _context.topics.FindAsync(id);
             if (entity != null)

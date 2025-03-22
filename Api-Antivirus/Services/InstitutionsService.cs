@@ -21,16 +21,16 @@ namespace Api_Antivirus.Services
         }
 
         public async Task CreateAsync(InstitutionsRequestDto dto)
-        {
+        {   
             var entity = _mapper.Map<institutions>(dto);
             _context.institutions.Add(entity);
             await _context.SaveChangesAsync();
             _mapper.Map<InstitutionsRequestDto>(entity);
         }
 
-        public async Task DeleteAsync(long id)
+        public async Task DeleteAsync(int id)
         {
-            var entity = await _context.categories.FindAsync(id);
+            var entity = await _context.institutions.FindAsync(id);
             if (entity != null)
             {
                 _context.Remove(entity);
@@ -44,13 +44,13 @@ namespace Api_Antivirus.Services
             return _mapper.Map<IEnumerable<InstitutionsResponseDto>>(entities);
         }
 
-        public async Task<InstitutionsResponseDto> GetByIdAsync(long id)
+        public async Task<InstitutionsResponseDto> GetByIdAsync(int id)
         {
             var entity = await _context.institutions.FindAsync(id);
             return _mapper.Map<InstitutionsResponseDto>(entity);
         }
 
-        public async Task UpdateAsync(long id, InstitutionsRequestDto dto)
+        public async Task UpdateAsync(int id, InstitutionsRequestDto dto)
         {
             var entity = await _context.institutions.FindAsync(id);
             if (entity != null)
