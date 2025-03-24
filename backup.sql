@@ -6,7 +6,8 @@ CREATE TABLE public.institutions (
     url_generalidades text,
     url_oferta_academica text,
     url_bienestar text,
-    url_admision text
+    url_admision text,
+    logo VARCHAR(255) NOT NULL
 );
 
 -- Table: Categories
