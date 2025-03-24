@@ -15,6 +15,7 @@ namespace Api_Antivirus.DTO
         public string? UrlBienestar { get; set; }
 
         public string? UrlAdmision { get; set; }
+        public string? Logo { get; set; }
 
     }
 
@@ -31,5 +32,7 @@ namespace Api_Antivirus.DTO
         public string? UrlBienestar { get; set; }
 
         public string? UrlAdmision { get; set; }
+
+        public string? Logo { get; set; }
     }
 }
