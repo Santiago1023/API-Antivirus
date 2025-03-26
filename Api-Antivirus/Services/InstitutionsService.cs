@@ -57,10 +57,10 @@ namespace Api_Antivirus.Services
             {
                 entity.name = dto.Name;
                 entity.ubication = dto.Ubication;
-                entity.url_generalidades = dto.UrlGeneralidades;
-                entity.url_oferta_academica = dto.UrlOfertaAcademica;
-                entity.url_bienestar = dto.UrlBienestar;
-                entity.url_admision = dto.UrlAdmision;
+                entity.url_generalidades = dto.url_generalidades;
+                entity.url_oferta_academica = dto.url_oferta_academica;
+                entity.url_bienestar = dto.url_bienestar;
+                entity.url_admision = dto.url_admision;
                 await _context.SaveChangesAsync();
             }
         }

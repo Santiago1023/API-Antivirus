@@ -74,9 +74,9 @@ namespace Api_Antivirus.DTO
 
         public string? Guide { get; set; }
 
-        public string? AdicionalDates { get; set; }
+        public string? adicional_dates { get; set; }
 
-        public string? ServiceChannels { get; set; }
+        public string? service_channels { get; set; }
 
         public string? Manager { get; set; }
 
@@ -91,8 +91,12 @@ namespace Api_Antivirus.DTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string? Logo { get; set; }
-
+        public required string Logo { get; set; }
+        public string ubication { get; set; }
+        public string url_generalidades { get; set; }
+        public string url_oferta_academica { get; set; }
+        public string url_bienestar { get; set; }
+         public string url_admision { get; set; }
         
     }
 }
