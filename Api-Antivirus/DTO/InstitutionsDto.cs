@@ -8,13 +8,14 @@ namespace Api_Antivirus.DTO
 
         public string? Ubication { get; set; }
 
-        public string? UrlGeneralidades { get; set; }
+        public string? url_generalidades { get; set; }
 
-        public string? UrlOfertaAcademica { get; set; }
+        public string? url_oferta_academica { get; set; }
 
-        public string? UrlBienestar { get; set; }
+        public string? url_bienestar { get; set; }
 
-        public string? UrlAdmision { get; set; }
+        public string? url_admision { get; set; }
+        public string? Logo { get; set; }
 
     }
 
@@ -24,12 +25,14 @@ namespace Api_Antivirus.DTO
 
         public string? Ubication { get; set; }
 
-        public string? UrlGeneralidades { get; set; }
+        public string? url_generalidades { get; set; }
 
-        public string? UrlOfertaAcademica { get; set; }
+        public string? url_oferta_academica { get; set; }
 
-        public string? UrlBienestar { get; set; }
+        public string? url_bienestar { get; set; }
 
-        public string? UrlAdmision { get; set; }
+        public string? url_admision { get; set; }
+
+        public string? Logo { get; set; }
     }
 }
