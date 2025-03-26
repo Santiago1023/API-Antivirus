@@ -20,7 +20,7 @@ namespace Api_Antivirus.Controllers
         }
 
                 [HttpGet]
-        public async Task<ActionResult<IEnumerable<OpportunitiesResponseDto>>> GetAll()
+        public async Task<ActionResult<IEnumerable<OpportunitiesConsultDTO>>> GetAll()
         {
             var list = await _service.GetAllAsync();
             return Ok(list);

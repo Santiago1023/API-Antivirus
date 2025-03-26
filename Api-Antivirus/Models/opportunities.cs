@@ -34,7 +34,7 @@ public partial class opportunities
 
     [StringLength(50)]
     public string? modality { get; set; }
-
+   
     public int? category_id { get; set; }
 
     public int? institution_id { get; set; }

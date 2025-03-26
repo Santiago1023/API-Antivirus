@@ -38,10 +38,14 @@ namespace Api_Antivirus.Services
             }
         }
 
-        public async Task<IEnumerable<OpportunitiesResponseDto>> GetAllAsync()
+        public async Task<IEnumerable<OpportunitiesConsultDTO>> GetAllAsync()
         {
-            var entities = await _context.opportunities.ToListAsync();
-            return _mapper.Map<IEnumerable<OpportunitiesResponseDto>>(entities);
+            var entities = await _context.opportunities
+            .Include(o => o.institution) // Incluir la institución
+            .OrderBy(o => o.id)
+            .ToListAsync();
+
+            return _mapper.Map<IEnumerable<OpportunitiesConsultDTO>>(entities);
         }
 
         public async Task<OpportunitiesResponseDto> GetByIdAsync(int id)
