@@ -30,7 +30,7 @@ namespace Api_Antivirus.DTO
 
         public string? Costs { get; set; }
 
-        public institutions? Institution_id { get; set; }
+        public int? Institution_id { get; set; }
 
     }
 }

@@ -5,9 +5,9 @@ namespace Api_Antivirus.Interface
     public interface IUserOpportunities
     {
         Task<IEnumerable<UserOpportunitiesResponseDto>> GetAllAsync();
-        Task<UserOpportunitiesResponseDto> GetByIdAsync(long id);
+        Task<UserOpportunitiesResponseDto> GetByIdAsync(int id);
         Task CreateAsync(UserOpportunitiesRequestDto dto);
-        Task UpdateAsync(long id, UserOpportunitiesRequestDto dto);
-        Task DeleteAsync(long id);
+        Task UpdateAsync(int id, UserOpportunitiesRequestDto dto);
+        Task DeleteAsync(int id);
     }
 }
