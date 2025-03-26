@@ -48,7 +48,7 @@ INSERT INTO public.institutions(
 	'https://www.medellin.unal.edu.co/programas.html',
 	'https://www.medellin.unal.edu.co/bienestar-universitario.html',
 	'https://www.medellin.unal.edu.co/admisiones.html',
-	'https://www1.funcionpublica.gov.co/documents/28587425/41589060/logo-Universidad-Nacional.png/92343759-b2d7-7df3-4425-efa3337f2da7?t=1671747619326'
+	'https://www.grupolarabida.org/wp-content/uploads/2020/10/Colombia_UniversidadNacionaldeColombia_UNAL_21_.jpg'
 	),
 	('Universidad EAFIT', 'Medellín, Antioquia',
 	'https://www.eafit.edu.co/',
