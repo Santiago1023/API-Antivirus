@@ -37,6 +37,13 @@ namespace Api_Antivirus.Controllers
             return Ok(dto);
         }
 
+        [HttpGet("exists")]
+        public async Task<ActionResult<bool>> CheckIfExists([FromQuery] int user_id, [FromQuery] int opportunity_id)
+        {
+            var exists = await _service.GetExistsAsync(user_id, opportunity_id);
+            return Ok(exists);
+        }
+
         [HttpPost]
         public async Task<ActionResult<UserOpportunitiesResponseDto>> Create([FromBody] UserOpportunitiesRequestDto dto)
         {   

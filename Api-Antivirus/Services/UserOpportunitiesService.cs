@@ -20,6 +20,13 @@ namespace Api_Antivirus.Services
             _mapper = mapper;
         }
 
+        //consulta desde la url el valor userid y opportunityid
+        public async Task<bool> GetExistsAsync(int userId, int opportunityId)
+        {
+            return await _context.user_opportunities
+                .AnyAsync(uo => uo.user_id == userId && uo.opportunity_id == opportunityId);
+        }
+
         public async Task CreateAsync(UserOpportunitiesRequestDto dto)
         {
             var entity = _mapper.Map<user_opportunities>(dto);
