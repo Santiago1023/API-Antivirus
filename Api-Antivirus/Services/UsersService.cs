@@ -1,4 +1,5 @@
 
+using System.Security.Claims;
 using Api_Antivirus.Data;
 using Api_Antivirus.DTO;
 using Api_Antivirus.Interface;
@@ -48,6 +49,19 @@ namespace Api_Antivirus.Services
         {
             var entity = await _context.users.FindAsync(id);
             return _mapper.Map<UsersResponseDto>(entity);
+        }
+
+        //configuro la extraccion de datos del token recibido
+        public async Task<UsersResponseDto?> GetCurrentUserAsync(ClaimsPrincipal user) 
+        {
+            var userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value; //extraigo el Id
+            if (userId == null)
+            {
+                return null;
+            }
+            var entity = await _context.users.FindAsync(int.Parse(userId));
+            return _mapper.Map<UsersResponseDto>(entity);
+
         }
 
         public async Task UpdateAsync(int id, UsersRequestDto dto)
