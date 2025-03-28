@@ -37,13 +37,24 @@ namespace Api_Antivirus.Controllers
             return Ok(dto);
         }
 
-        [HttpGet("exists")]
+        [HttpGet("exists")] // este es para favoritos pero en opportunity
+        public async Task<ActionResult<int?>> CheckIfExists([FromQuery] int user_id, [FromQuery] int opportunity_id)
+        {
+            var favoriteID = await _service.GetFavoriteIdAsync(user_id, opportunity_id);
+            if (favoriteID == null)
+            {
+                return NotFound(); //devuelve un 404 si no existe
+            }
+            return Ok(favoriteID); //devuelve el id de la relacion
+        }
+/*
+        [HttpGet("exists")] // este es para favoritos pero en opportunity
         public async Task<ActionResult<bool>> CheckIfExists([FromQuery] int user_id, [FromQuery] int opportunity_id)
         {
             var exists = await _service.GetExistsAsync(user_id, opportunity_id);
             return Ok(exists);
         }
-
+*/
         [HttpPost]
         public async Task<ActionResult<UserOpportunitiesResponseDto>> Create([FromBody] UserOpportunitiesRequestDto dto)
         {   
@@ -53,8 +64,8 @@ namespace Api_Antivirus.Controllers
             {
                 return BadRequest(ModelState);
             }
-            await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(Get), dto);
+            var createdOpportunity = await _service.CreateAsync(dto); // Recibe el objeto con ID generado
+            return CreatedAtAction(nameof(Get), new { id = createdOpportunity.Id }, createdOpportunity); 
         }
 
         [HttpPut("{id}")]
