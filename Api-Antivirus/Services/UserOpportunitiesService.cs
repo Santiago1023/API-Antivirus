@@ -20,12 +20,31 @@ namespace Api_Antivirus.Services
             _mapper = mapper;
         }
 
-        public async Task CreateAsync(UserOpportunitiesRequestDto dto)
+        //consulta desde la url el valor userid y opportunityid
+        public async Task<object?> GetFavoriteIdAsync(int userId, int opportunityId)
+        {
+            var favoriteId = await _context.user_opportunities
+                .Where(uo => uo.user_id == userId && uo.opportunity_id == opportunityId)
+                .Select(uo => new {id = uo.id}) // devolvemos el ID  en un objeto
+                .FirstOrDefaultAsync();
+
+            return favoriteId; //retorna el ID si existe o null 
+        }
+
+        /*public async Task<bool> GetExistsAsync(int userId, int opportunityId)
+        {
+            return await _context.user_opportunities
+                .AnyAsync(uo => uo.user_id == userId && uo.opportunity_id == opportunityId);
+        }
+        */
+
+        public async Task<UserOpportunitiesResponseDto> CreateAsync(UserOpportunitiesRequestDto dto)
         {
             var entity = _mapper.Map<user_opportunities>(dto);
             _context.user_opportunities.Add(entity);
             await _context.SaveChangesAsync();
-            _mapper.Map<UserOpportunitiesRequestDto>(entity);
+            return _mapper.Map<UserOpportunitiesResponseDto>(entity);
+            
         }
 
         public async Task DeleteAsync(int id)

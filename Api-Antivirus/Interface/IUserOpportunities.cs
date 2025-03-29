@@ -6,7 +6,8 @@ namespace Api_Antivirus.Interface
     {
         Task<IEnumerable<UserOpportunitiesResponseDto>> GetAllAsync();
         Task<UserOpportunitiesResponseDto> GetByIdAsync(int id);
-        Task CreateAsync(UserOpportunitiesRequestDto dto);
+        Task<object?> GetFavoriteIdAsync(int user_id, int opportunity_id);
+        Task<UserOpportunitiesResponseDto> CreateAsync(UserOpportunitiesRequestDto dto);
         Task UpdateAsync(int id, UserOpportunitiesRequestDto dto);
         Task DeleteAsync(int id);
     }

@@ -13,7 +13,7 @@ namespace Api_Antivirus.Mappers
             CreateMap<user_opportunities, UserOpportunitiesRequestDto>().ReverseMap();
 
             CreateMap<UserOpportunitiesRequestDto, user_opportunities>().ReverseMap();
-            CreateMap<UserOpportunitiesRequestDto, user_opportunities>().ReverseMap();
+            CreateMap<UserOpportunitiesResponseDto, user_opportunities>().ReverseMap();
         }
     }
 }
