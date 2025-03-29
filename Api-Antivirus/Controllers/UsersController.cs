@@ -19,7 +19,7 @@ namespace Api_Antivirus.Controllers
             _service = service;
         }
 
-                [HttpGet]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<UsersResponseDto>>> GetAll()
         {
             var list = await _service.GetAllAsync();
@@ -35,6 +35,18 @@ namespace Api_Antivirus.Controllers
                 return NotFound();
             }
             return Ok(dto);
+        }
+
+        //recibe el token
+        [HttpGet("login")]
+        public async Task<IActionResult> GetCurrentUser ([FromServices] IUsers userService)
+        {
+            var user = await userService.GetCurrentUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized(new{error = "No se encontró el usuario"});
+            }
+            return Ok(user);
         }
 
         [HttpPost]

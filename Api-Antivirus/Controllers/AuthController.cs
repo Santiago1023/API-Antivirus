@@ -56,7 +56,7 @@ namespace Api_Antivirus.Controllers
             }
 
             var token = _authService.GenerateJwtToken(existingUser);
-            return Ok(new { token });
+            return Ok(new { token, rol = existingUser.rol });
         }
 
     }
