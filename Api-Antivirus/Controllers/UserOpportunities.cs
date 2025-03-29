@@ -37,6 +37,19 @@ namespace Api_Antivirus.Controllers
             return Ok(dto);
         }
 
+        //consulta por user
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetUserOpportunitiesForUser (int userId)
+        {
+            var opportunities = await _service.GetUserOpportunitiesDetailedAsync(userId);
+
+            if (opportunities == null || !opportunities.Any())
+            {
+                return NotFound("No se encontraron oportunidades guardadas");
+            }
+            return Ok(opportunities);
+        }
+
         [HttpGet("exists")] // este es para favoritos pero en opportunity
         public async Task<ActionResult<int?>> CheckIfExists([FromQuery] int user_id, [FromQuery] int opportunity_id)
         {
@@ -47,14 +60,7 @@ namespace Api_Antivirus.Controllers
             }
             return Ok(favoriteID); //devuelve el id de la relacion
         }
-/*
-        [HttpGet("exists")] // este es para favoritos pero en opportunity
-        public async Task<ActionResult<bool>> CheckIfExists([FromQuery] int user_id, [FromQuery] int opportunity_id)
-        {
-            var exists = await _service.GetExistsAsync(user_id, opportunity_id);
-            return Ok(exists);
-        }
-*/
+
         [HttpPost]
         public async Task<ActionResult<UserOpportunitiesResponseDto>> Create([FromBody] UserOpportunitiesRequestDto dto)
         {   
