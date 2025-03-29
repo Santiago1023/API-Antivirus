@@ -20,6 +20,17 @@ namespace Api_Antivirus.Services
             _mapper = mapper;
         }
 
+        //consulta por Id de usuario
+        public async Task <List<UserOpportunitiesDetailedConsultDTO>> GetUserOpportunitiesDetailedAsync (int userId)
+        {
+            var userOpportunities = await _context.user_opportunities
+                .Where(uo => uo.user_id == userId) //filtra el usuario
+                .Include(uo => uo.opportunity) // trae los datos de Opportunity
+                    .ThenInclude(o => o.institution)// incluye la institucion dentro de opportunity
+                .ToListAsync();  
+            return _mapper.Map<List<UserOpportunitiesDetailedConsultDTO>>(userOpportunities);
+        }
+
         //consulta desde la url el valor userid y opportunityid
         public async Task<object?> GetFavoriteIdAsync(int userId, int opportunityId)
         {
@@ -31,12 +42,6 @@ namespace Api_Antivirus.Services
             return favoriteId; //retorna el ID si existe o null 
         }
 
-        /*public async Task<bool> GetExistsAsync(int userId, int opportunityId)
-        {
-            return await _context.user_opportunities
-                .AnyAsync(uo => uo.user_id == userId && uo.opportunity_id == opportunityId);
-        }
-        */
 
         public async Task<UserOpportunitiesResponseDto> CreateAsync(UserOpportunitiesRequestDto dto)
         {
