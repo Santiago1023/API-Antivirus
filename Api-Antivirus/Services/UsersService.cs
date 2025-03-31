@@ -52,7 +52,7 @@ namespace Api_Antivirus.Services
         }
 
         //configuro la extraccion de datos del token recibido
-        public async Task<UsersResponseDto?> GetCurrentUserAsync(ClaimsPrincipal user) 
+        public async Task<UsersResponseDto?> GetCurrentUserAsync(ClaimsPrincipal user)
         {
             var userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value; //extraigo el Id
             if (userId == null)
@@ -76,5 +76,14 @@ namespace Api_Antivirus.Services
                 await _context.SaveChangesAsync();
             }
         }
+        public async Task UpdateRolAsync(int id, string newRol)
+        {
+            var user = await _context.users.FindAsync(id);
+            if (user == null) throw new KeyNotFoundException("Usuario no encontrado");
+
+            user.rol = newRol;
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

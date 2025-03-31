@@ -11,5 +11,7 @@ namespace Api_Antivirus.Interface
         Task CreateAsync(UsersRequestDto dto);
         Task UpdateAsync(int id, UsersRequestDto dto);
         Task DeleteAsync(int id);
+        Task UpdateRolAsync(int id, string newRol);
+
     }
 }

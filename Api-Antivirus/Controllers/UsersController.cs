@@ -37,14 +37,14 @@ namespace Api_Antivirus.Controllers
             return Ok(dto);
         }
 
-        //recibe el token
+        // Recibe el token
         [HttpGet("login")]
-        public async Task<IActionResult> GetCurrentUser ([FromServices] IUsers userService)
+        public async Task<IActionResult> GetCurrentUser([FromServices] IUsers userService)
         {
             var user = await userService.GetCurrentUserAsync(User);
             if (user == null)
             {
-                return Unauthorized(new{error = "No se encontró el usuario"});
+                return Unauthorized(new { error = "No se encontró el usuario" });
             }
             return Ok(user);
         }
@@ -90,10 +90,27 @@ namespace Api_Antivirus.Controllers
             return NoContent();
         }
 
+        [HttpPatch("{id}/rol")]
+        public async Task<IActionResult> UpdateUserRol(int id, [FromBody] UpdateRolRequest request)
+        {
+            if (!IsAdmin()) return Forbid();
+            
+            var user = await _service.GetByIdAsync(id);
+            if (user == null) return NotFound("Usuario no encontrado");
+
+            await _service.UpdateRolAsync(id, request.Rol);
+            return Ok(new { message = "Rol actualizado correctamente" });
+        }
+
         private bool IsAdmin()
         {
-            var role = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "rol")?.Value;
-            return role == "admin";
+            var rol = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "rol")?.Value;
+            return rol == "admin";
         }
+    }
+
+    public class UpdateRolRequest
+    {
+        public string Rol { get; set; }
     }
 }
