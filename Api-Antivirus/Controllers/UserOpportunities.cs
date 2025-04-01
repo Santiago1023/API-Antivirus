@@ -64,7 +64,6 @@ namespace Api_Antivirus.Controllers
         [HttpPost]
         public async Task<ActionResult<UserOpportunitiesResponseDto>> Create([FromBody] UserOpportunitiesRequestDto dto)
         {   
-            if (!IsAdmin()) return Forbid();
 
             if (!ModelState.IsValid)
             {
@@ -91,8 +90,7 @@ namespace Api_Antivirus.Controllers
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {   
-            if (!IsAdmin()) return Forbid();
-
+            
             var result = await _service.GetByIdAsync(id);
             if (result == null)
             {
