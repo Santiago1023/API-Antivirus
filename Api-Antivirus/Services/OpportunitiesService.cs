@@ -65,12 +65,12 @@ namespace Api_Antivirus.Services
                 entity.description = dto.Description;
                 entity.requires = dto.Requires;
                 entity.guide = dto.Guide;
-                entity.adicional_dates = dto.AdicionalDates;
-                entity.service_channels = dto.ServiceChannels;
+                entity.adicional_dates = dto.adicional_dates;
+                entity.service_channels = dto.service_channels;
                 entity.manager = dto.Manager;
                 entity.modality = dto.Modality;
-                entity.category_id = dto.CategoryId;
-                entity.institution_id = dto.InstitutionId;
+                entity.category_id = dto.category_id;
+                entity.institution_id = dto.institution_id;
 
                 await _context.SaveChangesAsync();
             }

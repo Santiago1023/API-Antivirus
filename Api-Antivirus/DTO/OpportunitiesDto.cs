@@ -18,17 +18,17 @@ namespace Api_Antivirus.DTO
 
         public string? Guide { get; set; }
 
-        public string? AdicionalDates { get; set; }
+        public string? adicional_dates { get; set; }
 
-        public string? ServiceChannels { get; set; }
+        public string? service_channels { get; set; }
 
         public string? Manager { get; set; }
 
         public string? Modality { get; set; }
 
-        public int CategoryId { get; set; }
+        public int category_id { get; set; }
 
-        public int InstitutionId { get; set; }
+        public int institution_id { get; set; }
 
     }
 
@@ -46,17 +46,17 @@ namespace Api_Antivirus.DTO
 
         public string? Guide { get; set; }
 
-        public string? AdicionalDates { get; set; }
+        public string? adicional_dates { get; set; }
 
-        public string? ServiceChannels { get; set; }
+        public string? service_channels { get; set; }
 
         public string? Manager { get; set; }
 
         public string? Modality { get; set; }
 
-        public int CategoryId { get; set; }
+        public int category_id { get; set; }
 
-        public int InstitutionId { get; set; }
+        public int institution_id { get; set; }
     }
 
     public class OpportunitiesConsultDTO
@@ -82,9 +82,9 @@ namespace Api_Antivirus.DTO
 
         public string? Modality { get; set; }
 
-        public int CategoryId { get; set; }
+        public int category_id { get; set; }
 
-        public int? InstitutionId { get; set; }  // Se mantiene el ID por compatibilidad
+        public int? institution_id { get; set; }  // Se mantiene el ID por compatibilidad
         public InstitutionCustomDto? Institution { get; set; } // Opcional: más datos de la institución
     }
     public class InstitutionCustomDto
