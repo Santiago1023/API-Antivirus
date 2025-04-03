@@ -46,8 +46,9 @@ namespace Api_Antivirus.Controllers
             {
                 return BadRequest(ModelState);
             }
-            await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(Get), dto);
+
+            var createdCategory = await _service.CreateAsync(dto); // Ahora devuelve la categoría creada
+            return CreatedAtAction(nameof(Get), new { id = createdCategory.Id }, createdCategory);
         }
 
         [HttpPut("{id}")]

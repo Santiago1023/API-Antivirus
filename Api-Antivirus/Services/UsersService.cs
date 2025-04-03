@@ -71,8 +71,13 @@ namespace Api_Antivirus.Services
             {
                 entity.name = dto.Name;
                 entity.email = dto.Email;
-                entity.password = dto.Password;
                 entity.rol = dto.Rol;
+
+                if (!string.IsNullOrWhiteSpace(dto.Password))
+                {
+                    entity.password = dto.Password;
+                }
+
                 await _context.SaveChangesAsync();
             }
         }
