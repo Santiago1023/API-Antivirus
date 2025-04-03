@@ -39,15 +39,20 @@ namespace Api_Antivirus.Controllers
 
         [HttpPost]
         public async Task<ActionResult<OpportunitiesResponseDto>> Create([FromBody] OpportunitiesRequestDto dto)
-        {   
-            if (!IsAdmin()) return Forbid();
-            
+        {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(Get), dto);
+
+            var createdOportunity = await _service.CreateAsync(dto);
+
+            if (createdOportunity == null)
+            {
+                return BadRequest("No se pudo crear la oportunidad.");
+            }
+
+            return CreatedAtAction(nameof(Get), new { id = createdOportunity.Id }, createdOportunity);
         }
 
         [HttpPut("{id}")]

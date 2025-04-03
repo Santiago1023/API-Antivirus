@@ -20,12 +20,13 @@ namespace Api_Antivirus.Services
             _mapper = mapper;
         }
 
-        public async Task CreateAsync(InstitutionsRequestDto dto)
-        {   
-            var entity = _mapper.Map<institutions>(dto);
-            _context.institutions.Add(entity);
-            await _context.SaveChangesAsync();
-            _mapper.Map<InstitutionsRequestDto>(entity);
+        public async Task<InstitutionsResponseDto> CreateAsync(InstitutionsRequestDto dto)
+        {
+            var institution = _mapper.Map<institutions>(dto); // Convertir DTO a entidad
+            _context.institutions.Add(institution);
+            await _context.SaveChangesAsync(); // Guardar en la BD y generar ID
+
+            return _mapper.Map<InstitutionsResponseDto>(institution); // Retornar la institución creada con ID
         }
 
         public async Task DeleteAsync(int id)

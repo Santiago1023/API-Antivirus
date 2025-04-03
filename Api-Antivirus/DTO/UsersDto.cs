@@ -18,7 +18,7 @@ namespace Api_Antivirus.DTO
 
         public string Email { get; set; } = null!;
 
-        public string Password { get; set; } = null!;
+        public string? Password { get; set; }
 
         public string Rol { get; set; } = null!;
     }

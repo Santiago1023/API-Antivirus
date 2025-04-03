@@ -39,15 +39,20 @@ namespace Api_Antivirus.Controllers
 
         [HttpPost]
         public async Task<ActionResult<InstitutionsResponseDto>> Create([FromBody] InstitutionsRequestDto dto)
-        {   
-            if (!IsAdmin()) return Forbid();
-
+        {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(Get), dto);
+
+            var createdInstitution = await _service.CreateAsync(dto);
+
+            if (createdInstitution == null)
+            {
+                return BadRequest("No se pudo crear la institución.");
+            }
+
+            return CreatedAtAction(nameof(Get), new { id = createdInstitution.Id }, createdInstitution);
         }
 
         [HttpPut("{id}")]
