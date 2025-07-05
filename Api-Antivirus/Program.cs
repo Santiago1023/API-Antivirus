@@ -13,6 +13,12 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure Kestrel to listen on all interfaces for containerized deployment
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8080);
+});
+
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
