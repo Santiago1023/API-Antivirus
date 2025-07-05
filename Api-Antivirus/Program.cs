@@ -9,9 +9,10 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Kestrel to listen on all interfaces for containerized deployment
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(8080);
+    options.ListenAnyIP(int.Parse(port));
 });
 
 // Add services to the container.
